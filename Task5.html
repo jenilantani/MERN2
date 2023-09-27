@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h3 {
+            display: flex;
+            align-items: center;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="url"] {
+            margin-left: 10px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        input[type="submit"] {
+            margin-top: 10px;
+        }
+
+        .alert {
+            position: absolute;
+            right: -120px;
+            top: 0;
+            background-color: #ffcccc;
+            padding: 5px;
+            border-radius: 3px;
+            font-size: 12px;
+            color: #ff0000;
+            visibility: visible;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Name:
+        <input type="text" id="name" name="name" required minlength="1" maxlength="20" size="20" />
+        <div class="alert" id="nameAlert">This field is required</div>
+    </h3>
+    <h3>Email:
+        <input type="email" id="email" name="email" required minlength="3" maxlength="64" size="20" />
+        <div class="alert" id="emailAlert">This field is required</div>
+    </h3>
+    <h3>Website:
+        <input id="myURL" name="myURL" type="url" />
+        <div class="alert" id="urlAlert">This field is required</div>
+    </h3>
+    <h3>Message:
+        <input type="text" id="message" name="message" required minlength="1" maxlength="100" size="20" />
+        <div class="alert" id="messageAlert">This field is required</div>
+    </h3>
+    <input type="submit" />
+
+    <script>
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const urlInput = document.getElementById('myURL');
+        const messageInput = document.getElementById('message');
+
+        const nameAlert = document.getElementById('nameAlert');
+        const emailAlert = document.getElementById('emailAlert');
+        const urlAlert = document.getElementById('urlAlert');
+        const messageAlert = document.getElementById('messageAlert');
+
+        nameInput.addEventListener('input', () => {
+            if (nameInput.value.trim() === '') {
+                nameAlert.style.visibility = 'visible';
+            } else {
+                nameAlert.style.visibility = 'hidden';
+            }
+        });
+
+        emailInput.addEventListener('input', () => {
+            if (emailInput.value.trim() === '') {
+                emailAlert.style.visibility = 'visible';
+            } else {
+                emailAlert.style.visibility = 'hidden';
+            }
+        });
+
+        urlInput.addEventListener('input', () => {
+            if (urlInput.value.trim() === '') {
+                urlAlert.style.visibility = 'visible';
+            } else {
+                urlAlert.style.visibility = 'hidden';
+            }
+        });
+
+        messageInput.addEventListener('input', () => {
+            if (messageInput.value.trim() === '') {
+                messageAlert.style.visibility = 'visible';
+            } else {
+                messageAlert.style.visibility = 'hidden';
+            }
+        });
+
+        setInterval(() => {
+            if (nameInput.value.trim() === '') {
+                nameAlert.style.visibility = 'visible';
+            } else {
+                nameAlert.style.visibility = 'hidden';
+            }
+
+            if (emailInput.value.trim() === '') {
+                emailAlert.style.visibility = 'visible';
+            } else {
+                emailAlert.style.visibility = 'hidden';
+            }
+
+            if (urlInput.value.trim() === '') {
+                urlAlert.style.visibility = 'visible';
+            } else {
+                urlAlert.style.visibility = 'hidden';
+            }
+
+            if (messageInput.value.trim() === '') {
+                messageAlert.style.visibility = 'visible';
+            } else {
+                messageAlert.style.visibility = 'hidden';
+            }
+        }, 500);
+    </script>
+</body>
+
+</html>
